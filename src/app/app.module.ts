@@ -8,10 +8,14 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { PlayersComponent } from './players/players.component';
+import { StringRotateModule } from 'ng-string-rotate';
 
+import { PlayerService } from './player.service'
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,
@@ -19,9 +23,12 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    StringRotateModule
   ],
-  providers: [],
+  providers: [
+    PlayerService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

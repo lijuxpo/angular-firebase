@@ -1,0 +1,12 @@
+<div class="new_player">
+  <input #newPlayerName placeholder="New Player" />
+  <button (click)="this.playerService.addPlayer(newPlayerName.value); newPlayerName.value=''"> + </button>
+</div>
+<div class="players">
+  <div class="player" *ngFor="let player of players">
+    <span class="keycode" [style.backgroundColor]="player.payload.doc.data().color"
+      (click)="deletePlayer(player)">{{ player.payload.doc.data().keyCode}}</span>
+    <span class="name" (click)="updatePlayer(player)">{{ player.payload.doc.data().name }}</span>
+  </div>
+</div>
+<input type="file" id="file-input" name="file-input" (change)="readURL($event);">
